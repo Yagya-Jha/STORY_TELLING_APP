@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, Platform, StatusBar,Image } from 'react-native'
 import * as Font from 'expo-font';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 
 let custom_font = {'Bubbegum-Sans':require('../assets/fonts/BubblegumSans-Regular.ttf')}
 
@@ -50,6 +50,7 @@ export default class Profile extends React.Component{
   
     componentDidMount(){
         this.loadFonts();
+        this.fetchUser();
     }
 
     render(){

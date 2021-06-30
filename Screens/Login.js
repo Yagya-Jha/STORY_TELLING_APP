@@ -5,7 +5,7 @@ import * as Google from 'expo-google-app-auth';
 import * as Font from 'expo-font';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 let custom_font = {'Bubbegum-Sans':require('../assets/fonts/BubblegumSans-Regular.ttf')}
 
 export default class Login extends React.Component{
@@ -45,10 +45,10 @@ export default class Login extends React.Component{
         var unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
           unsubscribe();
           // Check if we are already signed-in Firebase with the correct user.
-          if (! isUserEqual(googleUser, firebaseUser)) {
+          if (!this.isUserEqual(googleUser, firebaseUser)) {
             // Build Firebase credential with the Google ID token.
             var credential = firebase.auth.GoogleAuthProvider.credential(
-                googleUser.idtoken,
+                googleUser.idToken,
                 googleUser.accessToken
           );
 
